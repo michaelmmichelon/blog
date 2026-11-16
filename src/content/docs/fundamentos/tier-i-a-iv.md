@@ -7,9 +7,9 @@ sidebar:
 
 Todo datacenter se vende como "Tier III". Mas o que isso garante, e o que **não** garante?
 
-## Em uma frase
-
+:::note[Em uma frase]
 O Tier diz **o quanto a infraestrutura física aguenta falha e manutenção sem derrubar o que está rodando**. Ele não fala do teu servidor, da tua rede ou do teu backup.
+:::
 
 A classificação mais conhecida é a do **Uptime Institute** (Tier I a IV). Também existe a norma **ANSI/TIA-942**, que usa "Rated 1 a 4" com uma lógica parecida.
 
@@ -48,8 +48,8 @@ Esse é o erro mais comum:
 - O Tier não cobre o **teu** switch, o **teu** storage, o **teu** cluster e o **teu** backup.
 - Erro humano continua sendo a principal causa de parada.
 
-## Resumo
-
+:::tip[Resumo]
 1. O Tier mede a infraestrutura **física** do prédio: energia e refrigeração.
 2. O III permite **manutenção sem parada**. O IV aguenta **falha sem parada**.
 3. Um Tier alto não salva uma arquitetura sem redundância do teu lado.
+:::

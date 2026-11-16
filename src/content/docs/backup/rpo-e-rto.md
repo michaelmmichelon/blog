@@ -7,10 +7,10 @@ sidebar:
 
 Antes de escolher ferramenta de backup, tem duas perguntas que alguém precisa responder. Quase ninguém responde.
 
-## Em uma frase
-
+:::note[Em uma frase]
 - **RPO** (*Recovery Point Objective*): **quanto dado** dá para perder. É olhar para trás.
 - **RTO** (*Recovery Time Objective*): **quanto tempo** dá para ficar parado. É olhar para frente.
+:::
 
 ## Na linha do tempo
 
@@ -48,8 +48,8 @@ RPO e RTO perto de zero custam caro. O certo é definir **por sistema**: o ERP p
 - **Medir o RTO só pelo tempo de restore.** Esquecer o tempo de perceber o problema, decidir e validar.
 - **Nunca testar.** Sem um restore cronometrado, o RTO é chute.
 
-## Resumo
-
+:::tip[Resumo]
 1. **RPO** = quanto dado tu perde. **RTO** = quanto tempo tu fica parado.
 2. A frequência do backup define o RPO. O restore testado define o RTO.
 3. Define os dois **por sistema**, por escrito, antes do problema.
+:::

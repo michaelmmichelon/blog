@@ -1,12 +1,361 @@
-/* Cor de destaque do blog (azul-petróleo, lembra painel de NOC). */
+/* =========================================================
+   Datacenter na Prática — tema vermelho, preto e branco
+   ========================================================= */
+
+/* ---------- Paleta: modo escuro (padrão) ---------- */
 :root {
-	--sl-color-accent-low: #0b2b33;
-	--sl-color-accent: #0e8fa8;
-	--sl-color-accent-high: #a8e6f2;
+	--dp-red: #e3170a;
+	--dp-red-strong: #ff2d1f;
+	--dp-red-soft: #ffb4ad;
+	--dp-ink: #0a0a0a;
+	--dp-paper: #ffffff;
+
+	--sl-color-accent-low: #3d0703;
+	--sl-color-accent: #e3170a;
+	--sl-color-accent-high: #ffb4ad;
+
+	/* cinzas neutros (sem o tom azulado do padrão) */
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #ededed;
+	--sl-color-gray-2: #c4c4c4;
+	--sl-color-gray-3: #8f8f8f;
+	--sl-color-gray-4: #5c5c5c;
+	--sl-color-gray-5: #383838;
+	--sl-color-gray-6: #1c1c1c;
+	--sl-color-black: #0a0a0a;
+
+	--sl-color-bg-nav: #000000;
+	--sl-color-bg-sidebar: #0f0f0f;
+	--sl-color-hairline-light: #2a2a2a;
+	--sl-color-hairline: #222222;
+	--sl-color-hairline-shade: #000000;
+	--sl-color-text-accent: #ff4b3e;
+
+	--sl-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--sl-content-width: 48rem;
 }
 
+/* ---------- Paleta: modo claro ---------- */
 :root[data-theme='light'] {
-	--sl-color-accent-low: #c9eef5;
-	--sl-color-accent: #0a6f84;
-	--sl-color-accent-high: #063f4b;
+	--sl-color-accent-low: #ffe1de;
+	--sl-color-accent: #c81006;
+	--sl-color-accent-high: #6e0802;
+
+	--sl-color-white: #0a0a0a;
+	--sl-color-gray-1: #1a1a1a;
+	--sl-color-gray-2: #333333;
+	--sl-color-gray-3: #555555;
+	--sl-color-gray-4: #8a8a8a;
+	--sl-color-gray-5: #c9c9c9;
+	--sl-color-gray-6: #ececec;
+	--sl-color-gray-7: #f6f6f6;
+	--sl-color-black: #ffffff;
+
+	--sl-color-bg-nav: #ffffff;
+	--sl-color-bg-sidebar: #fafafa;
+	--sl-color-hairline-light: #e5e5e5;
+	--sl-color-hairline: #e0e0e0;
+	--sl-color-hairline-shade: #cfcfcf;
+	--sl-color-text-accent: #c81006;
+}
+
+/* ---------- Cabeçalho: faixa vermelha embaixo ---------- */
+header.header {
+	border-bottom: 3px solid var(--dp-red);
+}
+
+.site-title {
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	text-transform: uppercase;
+	font-size: 1.05rem;
+}
+
+/* ---------- Menu lateral ---------- */
+.sidebar-content summary .group-label,
+.sidebar-content .large {
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	font-size: 0.78rem;
+	color: var(--sl-color-white);
+}
+
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='page']:hover {
+	background: var(--dp-red);
+	color: #ffffff;
+	font-weight: 700;
+	border-radius: 0.25rem;
+}
+
+/* ---------- Títulos dos artigos ---------- */
+.content-panel h1#_top {
+	font-weight: 800;
+	letter-spacing: -0.03em;
+}
+
+.content-panel:has(h1#_top) {
+	border-top: none;
+}
+
+.sl-markdown-content h2 {
+	position: relative;
+	padding-inline-start: 0.85rem;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+}
+
+.sl-markdown-content h2::before {
+	content: '';
+	position: absolute;
+	inset-inline-start: 0;
+	top: 0.15em;
+	bottom: 0.15em;
+	width: 5px;
+	background: var(--dp-red);
+	border-radius: 2px;
+}
+
+.sl-markdown-content strong {
+	color: var(--sl-color-white);
+}
+
+.sl-markdown-content a:not(.card):not(.sl-link-card) {
+	color: var(--sl-color-text-accent);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
+}
+
+/* ---------- Tabelas: cabeçalho preto, linha vermelha ---------- */
+.sl-markdown-content table {
+	border-collapse: collapse;
+}
+
+.sl-markdown-content th,
+.sl-markdown-content td {
+	padding: 0.55rem 0.9rem;
+}
+
+.sl-markdown-content thead th {
+	background: #0a0a0a;
+	color: #ffffff;
+	border-bottom: 3px solid var(--dp-red);
+	text-transform: uppercase;
+	font-size: 0.78rem;
+	letter-spacing: 0.04em;
+}
+
+.sl-markdown-content tbody tr:nth-child(even) {
+	background: var(--sl-color-gray-6);
+}
+
+/* ---------- Destaques (asides) ---------- */
+.starlight-aside {
+	border-inline-start-width: 5px;
+	border-radius: 0 0.4rem 0.4rem 0;
+}
+
+/* "Em uma frase" usa o aside :::note → vermelho */
+.starlight-aside--note {
+	--sl-color-asides-text-accent: var(--sl-color-text-accent);
+	--sl-color-asides-border: var(--dp-red);
+	background: var(--sl-color-accent-low);
+}
+
+.starlight-aside--note .starlight-aside__content {
+	font-size: 1.08rem;
+	font-weight: 500;
+	color: var(--sl-color-white);
+}
+
+/* "Resumo" usa :::tip → preto com borda vermelha */
+.starlight-aside--tip {
+	--sl-color-asides-text-accent: #ffffff;
+	--sl-color-asides-border: var(--dp-red);
+	background: #0a0a0a;
+	color: #ffffff;
+}
+
+.starlight-aside--tip .starlight-aside__content,
+.starlight-aside--tip .starlight-aside__content strong {
+	color: #ffffff;
+}
+
+/* ---------- Cards ---------- */
+.card {
+	border: 1px solid var(--sl-color-hairline-light);
+	border-top: 4px solid var(--dp-red);
+	border-radius: 0.4rem;
+	background: var(--sl-color-black);
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 24px -12px rgba(227, 23, 10, 0.55);
+}
+
+.card .title {
+	font-weight: 800;
+	letter-spacing: -0.01em;
+}
+
+.card,
+.card:nth-child(n) {
+	--sl-card-border: var(--dp-red);
+	--sl-card-bg: var(--dp-red);
+}
+
+.card .icon {
+	color: #ffffff;
+	background: var(--dp-red);
+	border-color: var(--dp-red);
+}
+
+.card ul {
+	padding-inline-start: 1.1rem;
+}
+
+.sl-link-card {
+	border-inline-start: 4px solid var(--dp-red);
+	border-radius: 0.4rem;
+}
+
+.sl-link-card:hover {
+	border-color: var(--dp-red);
+	box-shadow: 0 8px 20px -12px rgba(227, 23, 10, 0.6);
+}
+
+/* ---------- Página inicial ---------- */
+.hero {
+	position: relative;
+	padding: 3rem 2rem;
+	margin-top: 1rem;
+	border-radius: 0.6rem;
+	background:
+		radial-gradient(circle at 85% 20%, rgba(227, 23, 10, 0.45), transparent 45%),
+		linear-gradient(135deg, #000000 0%, #141414 60%, #2a0402 100%);
+	border-bottom: 6px solid var(--dp-red);
+	overflow: hidden;
+}
+
+.hero::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-image: repeating-linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 0.04) 0 1px,
+		transparent 1px 36px
+	);
+	pointer-events: none;
+}
+
+.hero h1,
+.hero #_top {
+	color: #ffffff !important;
+	font-weight: 900;
+	letter-spacing: -0.04em;
+	text-transform: uppercase;
+	line-height: 1;
+}
+
+.hero .tagline {
+	color: #e6e6e6 !important;
+	font-size: 1.15rem;
+}
+
+.hero .sl-link-button.primary {
+	background: var(--dp-red);
+	border-color: var(--dp-red);
+	color: #ffffff;
+	font-weight: 700;
+}
+
+.hero .sl-link-button.primary:hover {
+	background: var(--dp-red-strong);
+}
+
+.hero .sl-link-button.minimal {
+	color: #ffffff;
+	border: 2px solid #ffffff;
+	border-radius: 999rem;
+	padding-inline: 1.25rem;
+}
+
+.hero .sl-link-button,
+.hero h1,
+.hero .tagline {
+	position: relative;
+	z-index: 1;
+}
+
+/* faixa de números da home */
+.dp-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+	gap: 0;
+	margin-block: 2rem;
+	border: 1px solid var(--sl-color-hairline-light);
+	border-radius: 0.4rem;
+	overflow: hidden;
+}
+
+.dp-stats div {
+	padding: 1rem 1.25rem;
+	border-inline-end: 1px solid var(--sl-color-hairline-light);
+}
+
+.dp-stats div:last-child {
+	border-inline-end: none;
+}
+
+.dp-stats strong {
+	display: block;
+	font-size: 2rem;
+	font-weight: 900;
+	color: var(--dp-red) !important;
+	line-height: 1.1;
+}
+
+.dp-stats span {
+	font-size: 0.85rem;
+	color: var(--sl-color-gray-2);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+/* trilha numerada */
+.dp-trilha {
+	counter-reset: passo;
+	list-style: none;
+	padding: 0 !important;
+}
+
+.dp-trilha li {
+	counter-increment: passo;
+	position: relative;
+	padding: 0.6rem 0 0.6rem 3.2rem;
+	border-bottom: 1px solid var(--sl-color-hairline-light);
+}
+
+.dp-trilha li::before {
+	content: counter(passo, decimal-leading-zero);
+	position: absolute;
+	inset-inline-start: 0;
+	top: 0.45rem;
+	width: 2.4rem;
+	text-align: center;
+	font-weight: 900;
+	color: #ffffff;
+	background: var(--dp-red);
+	border-radius: 0.25rem;
+	padding: 0.1rem 0;
+}
+
+@media (max-width: 50rem) {
+	.hero {
+		padding: 2rem 1.25rem;
+	}
 }

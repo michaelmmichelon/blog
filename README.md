@@ -19,13 +19,33 @@ Publicado em: https://michaelmmichelon.github.io/blog/
    ```
 
 3. Escreve no formato: **Em uma frase → como funciona → analogia → erros comuns → resumo**.
-4. O artigo aparece sozinho no menu do pilar.
+   Os dois destaques usam caixas prontas:
 
-Para um pilar novo (por exemplo `virtualizacao`), cria a pasta e adiciona uma linha no `sidebar` do `astro.config.mjs`:
+   ```md
+   :::note[Em uma frase]
+   A ideia central em uma ou duas linhas.
+   :::
+
+   :::tip[Resumo]
+   1. Primeiro ponto.
+   2. Segundo ponto.
+   3. Terceiro ponto.
+   :::
+   ```
+
+4. O artigo aparece sozinho no menu do pilar. Para ele aparecer também na página inicial, adiciona o link no card do pilar em `src/content/docs/index.mdx` e atualiza o número de artigos.
+
+Pilares atuais (pastas em `src/content/docs/`): `fundamentos`, `servidores`, `virtualizacao`, `rede`, `backup`, `monitoramento`.
+
+Para um pilar novo, cria a pasta e adiciona uma linha no `sidebar` do `astro.config.mjs`:
 
 ```js
-{ label: 'Virtualização', items: [{ autogenerate: { directory: 'virtualizacao' } }] },
+pilar('Segurança', 'seguranca'),
 ```
+
+## Cores e layout
+
+Tudo fica em `src/styles/tema.css`: vermelho `#e3170a`, preto e branco, nos modos claro e escuro.
 
 ## Ver no computador
 

@@ -3,41 +3,83 @@ title: Datacenter na Prática
 description: Conteúdo explicativo sobre datacenter, virtualização, backup e monitoramento, em português e direto ao ponto.
 template: splash
 hero:
+  title: Datacenter na Prática
   tagline: Como a infraestrutura funciona de verdade, explicado por quem opera. Um assunto por artigo, sem encher linguiça.
   actions:
-    - text: Comece pelo básico
-      link: fundamentos/tier-i-a-iv/
+    - text: Começar a trilha
+      link: '#trilha-recomendada'
       icon: right-arrow
     - text: Backup e desastre
       link: backup/raid-nao-e-backup/
-      icon: right-arrow
       variant: minimal
 ---
 
 import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
+<div class="dp-stats not-content">
+	<div><strong>6</strong><span>Pilares</span></div>
+	<div><strong>20</strong><span>Artigos</span></div>
+	<div><strong>100%</strong><span>Em português</span></div>
+	<div><strong>0</strong><span>Enrolação</span></div>
+</div>
+
+## Trilha recomendada
+
+Para quem está começando, esta ordem monta a base sem lacunas:
+
+<ol class="dp-trilha">
+	<li><a href="fundamentos/tier-i-a-iv/">Tier I a IV: o que muda de verdade</a></li>
+	<li><a href="fundamentos/energia-da-concessionaria-ao-servidor/">Energia: da concessionária até o servidor</a></li>
+	<li><a href="fundamentos/corredor-quente-e-frio/">Corredor quente e corredor frio</a></li>
+	<li><a href="virtualizacao/o-que-e-um-hipervisor/">O que é um hipervisor</a></li>
+	<li><a href="backup/raid-nao-e-backup/">RAID não é backup</a></li>
+	<li><a href="backup/rpo-e-rto/">RPO e RTO: quanto tu aceita perder</a></li>
+	<li><a href="backup/regra-3-2-1/">Regra 3-2-1</a></li>
+	<li><a href="monitoramento/o-que-e-um-noc/">O que é um NOC</a></li>
+</ol>
+
 ## Pilares
 
 <CardGrid>
 	<Card title="Como um datacenter funciona" icon="seti:config">
-		Tier, energia, refrigeração, redundância. A base para entender todo o resto.
+		- [Tier I a IV](fundamentos/tier-i-a-iv/)
+		- [Energia: da concessionária ao servidor](fundamentos/energia-da-concessionaria-ao-servidor/)
+		- [Redundância N, N+1 e 2N](fundamentos/redundancia-n-n1-2n/)
+		- [Corredor quente e frio](fundamentos/corredor-quente-e-frio/)
+		- [O que é PUE](fundamentos/o-que-e-pue/)
 	</Card>
-	<Card title="Backup e desastre" icon="approve-check">
-		3-2-1, RPO e RTO, restore testado e ransomware. O que separa um susto de um desastre.
+	<Card title="Servidores e armazenamento" icon="seti:db">
+		- [Níveis de RAID explicados](servidores/niveis-de-raid/)
+		- [ZFS x RAID de controladora](servidores/zfs-x-raid-de-controladora/)
 	</Card>
 	<Card title="Virtualização" icon="laptop">
-		Hipervisor, cluster, quorum e HA, com Proxmox como exemplo. *Em breve.*
+		- [O que é um hipervisor](virtualizacao/o-que-e-um-hipervisor/)
+		- [VM x container](virtualizacao/vm-x-container/)
+		- [Cluster, quorum e HA](virtualizacao/cluster-quorum-e-ha/)
+	</Card>
+	<Card title="Rede no datacenter" icon="random">
+		- [VLAN explicada](rede/vlan/)
+		- [Rede de gerência (IPMI, iDRAC, iLO)](rede/rede-de-gerencia/)
+	</Card>
+	<Card title="Backup e desastre" icon="approve-check">
+		- [RAID não é backup](backup/raid-nao-e-backup/)
+		- [RPO e RTO](backup/rpo-e-rto/)
+		- [Regra 3-2-1](backup/regra-3-2-1/)
+		- [Backup x snapshot x réplica](backup/backup-snapshot-replica/)
+		- [Backup não testado não existe](backup/backup-nao-testado/)
+		- [Ransomware ataca o backup primeiro](backup/ransomware-e-backup/)
 	</Card>
 	<Card title="Monitoramento e NOC" icon="information">
-		Zabbix, Prometheus e alerta que importa. *Em breve.*
+		- [O que é um NOC](monitoramento/o-que-e-um-noc/)
+		- [Alerta bom x alerta inútil](monitoramento/alerta-bom-x-alerta-inutil/)
 	</Card>
 </CardGrid>
 
-## Artigos recentes
+## Em destaque
 
 <CardGrid>
-	<LinkCard title="Tier I a IV: o que muda de verdade" href="fundamentos/tier-i-a-iv/" />
-	<LinkCard title="Corredor quente e corredor frio" href="fundamentos/corredor-quente-e-frio/" />
-	<LinkCard title="RAID não é backup" href="backup/raid-nao-e-backup/" />
-	<LinkCard title="RPO e RTO: quanto tu aceita perder" href="backup/rpo-e-rto/" />
+	<LinkCard title="RAID não é backup" description="Por que o RAID replica o erro, a exclusão e o ransomware na hora." href="backup/raid-nao-e-backup/" />
+	<LinkCard title="Ransomware ataca o backup primeiro" description="Como o ataque acontece e o que faz o backup sobreviver." href="backup/ransomware-e-backup/" />
+	<LinkCard title="Cluster, quorum e HA" description="Por que um cluster de dois nós é cilada." href="virtualizacao/cluster-quorum-e-ha/" />
+	<LinkCard title="Alerta bom x alerta inútil" description="Fadiga de alerta e como montar alarmes que alguém leva a sério." href="monitoramento/alerta-bom-x-alerta-inutil/" />
 </CardGrid>

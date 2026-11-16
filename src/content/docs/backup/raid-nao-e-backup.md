@@ -7,9 +7,9 @@ sidebar:
 
 "Tá tranquilo, o servidor tem RAID." Essa frase já custou muito dado.
 
-## Em uma frase
-
+:::note[Em uma frase]
 O **RAID** protege contra **disco que quebra**. O **backup** protege contra **dado que se perde**. São problemas diferentes.
+:::
 
 ## O que o RAID faz
 
@@ -50,8 +50,8 @@ Ninguém deixa de fazer seguro porque tem estepe.
 - Segue a **regra 3-2-1**: 3 cópias, em 2 tipos de mídia, 1 fora do local.
 - **Testa o restore.** Backup que nunca foi restaurado é só uma esperança.
 
-## Resumo
-
+:::tip[Resumo]
 1. O RAID protege contra falha de **hardware**, não contra perda de **dado**.
 2. Ele replica erro, exclusão e ransomware na hora.
 3. Backup tem **histórico** e fica **fora** do servidor. É isso que salva.
+:::
