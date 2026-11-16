@@ -1,0 +1,43 @@
+---
+title: Datacenter na Prática
+description: Conteúdo explicativo sobre datacenter, virtualização, backup e monitoramento, em português e direto ao ponto.
+template: splash
+hero:
+  tagline: Como a infraestrutura funciona de verdade, explicado por quem opera. Um assunto por artigo, sem encher linguiça.
+  actions:
+    - text: Comece pelo básico
+      link: fundamentos/tier-i-a-iv/
+      icon: right-arrow
+    - text: Backup e desastre
+      link: backup/raid-nao-e-backup/
+      icon: right-arrow
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Pilares
+
+<CardGrid>
+	<Card title="Como um datacenter funciona" icon="seti:config">
+		Tier, energia, refrigeração, redundância. A base para entender todo o resto.
+	</Card>
+	<Card title="Backup e desastre" icon="approve-check">
+		3-2-1, RPO e RTO, restore testado e ransomware. O que separa um susto de um desastre.
+	</Card>
+	<Card title="Virtualização" icon="laptop">
+		Hipervisor, cluster, quorum e HA, com Proxmox como exemplo. *Em breve.*
+	</Card>
+	<Card title="Monitoramento e NOC" icon="information">
+		Zabbix, Prometheus e alerta que importa. *Em breve.*
+	</Card>
+</CardGrid>
+
+## Artigos recentes
+
+<CardGrid>
+	<LinkCard title="Tier I a IV: o que muda de verdade" href="fundamentos/tier-i-a-iv/" />
+	<LinkCard title="Corredor quente e corredor frio" href="fundamentos/corredor-quente-e-frio/" />
+	<LinkCard title="RAID não é backup" href="backup/raid-nao-e-backup/" />
+	<LinkCard title="RPO e RTO: quanto tu aceita perder" href="backup/rpo-e-rto/" />
+</CardGrid>

@@ -1,0 +1,12 @@
+/* Cor de destaque do blog (azul-petróleo, lembra painel de NOC). */
+:root {
+	--sl-color-accent-low: #0b2b33;
+	--sl-color-accent: #0e8fa8;
+	--sl-color-accent-high: #a8e6f2;
+}
+
+:root[data-theme='light'] {
+	--sl-color-accent-low: #c9eef5;
+	--sl-color-accent: #0a6f84;
+	--sl-color-accent-high: #063f4b;
+}
